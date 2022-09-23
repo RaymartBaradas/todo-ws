@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "env-cmd -f .env nodemon server.js",
-		"test": "env-cmd -f ./tests/.env jest --watchAll"
+		"test": "env-cmd -f ./tests/test.env jest --watchAll"
 	},
 	"author": "",
 	"license": "ISC",
