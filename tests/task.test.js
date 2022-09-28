@@ -37,20 +37,18 @@ describe('Tasks API', () => {
 	});
 
 	it('should create task', () => {
+		const payload = {
+			name: 'Sample',
+			status: 'PENDING',
+		};
 		return request(app)
 			.post('/api/tasks')
-			.send({
-				name: 'Sample',
-				status: 'PENDING',
-			})
+			.send(payload)
 			.expect('Content-Type', /json/)
 			.expect(201)
 			.then((response) => {
 				expect(response.body).toEqual(
-					expect.objectContaining({
-						name: expect.any(String),
-						status: expect.any(String),
-					})
+					expect.objectContaining(payload)
 				);
 			});
 	});
