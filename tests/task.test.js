@@ -1,15 +1,15 @@
 const request = require('supertest');
 const app = require('../app');
-const db = require('../models/index');
+const db = require('../libs/db');
 const taskFactory = require('./factories/task.factory');
 
 beforeEach(async () => {
-	await db.sequelize.sync({ force: true, logging: false });
+	await db.sync({ force: true, logging: false });
 });
 
 afterAll(async () => {
-	await db.sequelize.drop();
-	await db.sequelize.close();
+	await db.drop();
+	await db.close();
 });
 
 describe('Tasks API', () => {

@@ -1,15 +1,24 @@
-# todo-ws
+# TODO Rest API Application
 
-## Available Scripts
+This is a sample TODO REST API application that uses NodeJS, Express and Javascript
 
-In your own local environment, type the following command:
+### Prerequisites
 
-### npm install
+- NodeJS
+- Git
+- Visual Studio Code
 
-After the installation please copy .env.example -> .env
+### Installation
 
-To change the database connection, go to config/database.json and set your database credentials
+```
+$ Clone the project
+$ Execute "npm install" to get node modules
+$ Copy .env.example -> .env and set your database connection
+$ Run "npm start"
+```
 
-### npm start
+## Testing
 
-### npm test
+```
+$ Run "npm test" to run unit tests
+```

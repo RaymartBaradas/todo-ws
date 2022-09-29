@@ -1,4 +1,5 @@
-const { Task } = require('../models/index');
+const Task = require('../models/task.model');
+const Validator = require('validatorjs');
 
 // @desc    Get tasks
 // @route   GET /api/tasks
@@ -23,6 +24,17 @@ const index = async (req, res) => {
 // @desc    Create task
 // @route   POST /api/tasks
 const store = async (req, res) => {
+	const validation = new Validator(req.body, {
+		name: ['required', 'string', 'max:50'],
+	});
+
+	if (validation.fails()) {
+		let errors = validation.errors.all();
+		let message = errors[Object.keys(errors)[0]][0];
+
+		return res.status(422).json({ message });
+	}
+
 	const data = await Task.create({
 		name: req.body.name,
 		status: req.body.status,

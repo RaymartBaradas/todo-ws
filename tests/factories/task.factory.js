@@ -1,5 +1,5 @@
 const { faker } = require('@faker-js/faker');
-const models = require('../../models');
+const Task = require('../../models/task.model');
 
 const data = async (props = {}) => {
 	return {
@@ -8,4 +8,4 @@ const data = async (props = {}) => {
 	};
 };
 
-module.exports = async (props = {}) => models.Task.create(await data(props));
+module.exports = async (props = {}) => Task.create(await data(props));
